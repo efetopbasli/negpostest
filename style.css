@@ -1,0 +1,59 @@
+body {
+    font-family: 'Gloria Hallelujah', cursive;
+font-family: 'Montserrat Alternates', sans-serif;
+}
+
+.container {
+    max-width: 600px;
+    margin: 0 auto;
+    padding: 20px;
+    background-color: #af9b9b; /* Beyaz container arka plan rengi */
+    box-shadow: 0px 0px 20px rgba(0, 0, 0, 0.2);
+    border-radius: 10px;
+}
+
+h1 {
+    text-align: center;
+    color: #723024; /* Nar çiçeği kırmızısı başlık metni rengi */
+}
+
+form p {
+    font-weight: bold;
+    color: #011b18; /* Orta mavi soru metni rengi */
+}
+
+input[type="radio"] {
+    margin-right: 10px;
+}
+
+#sonuc {
+    font-weight: bold;
+    font-size: 28px;
+    text-align: center;
+    margin-top: 20px;
+    padding: 10px;
+    border-radius: 5px;
+}
+
+/* Renkli sonuçlar için sınıflar */
+.mutlu-sonuc {
+    color: #32CD32; /* Lime yeşili */
+}
+
+.huzunlu-sonuc {
+    color: #8B0000; /* Koyu kırmızı */
+}
+
+/* Soruların animasyonlu geçişi için efektler */
+.sorular {
+    animation: fadein 1s ease-in-out;
+}
+
+@keyframes fadein {
+    from {
+        opacity: 0;
+    }
+    to {
+        opacity: 1;
+    }
+}

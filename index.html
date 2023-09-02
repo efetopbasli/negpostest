@@ -1,0 +1,177 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="stylesheet" href="style.css">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Gloria+Hallelujah&family=Montserrat+Alternates:wght@700&display=swap" rel="stylesheet">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Duygu Durumu Anketi</title>
+    <style>
+        body {
+            font-family: 'Gloria Hallelujah', cursive;
+            background-color: #360808;
+        }
+
+        .container {
+            max-width: 600px;
+            margin: 0 auto;
+            padding: 20px;
+            background-color: rgb(231, 231, 231);
+            box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.2);
+            border-radius: 5px;
+        }
+
+        h1 {
+            text-align: center;
+        }
+
+        form p {
+            font-weight: bold;
+        }
+
+        input[type="radio"] {
+            margin-right: 5px;
+        }
+
+        #sonuc {
+            font-weight: bold;
+            font-size: 24px;
+            text-align: center;
+            margin-top: 20px;
+        }
+    </style>
+    <script>
+        function hesaplaDuyguDurumu() {
+            var toplamPuan = 0;
+
+            // Soru 1-2 (Depresyon)
+            var depresyon1 = parseInt(document.querySelector('input[name="depresyon1"]:checked').value);
+            var depresyon2 = parseInt(document.querySelector('input[name="depresyon2"]:checked').value);
+
+            // Soru 3-4 (Anksiyete)
+            var anksiyete3 = parseInt(document.querySelector('input[name="anksiyete3"]:checked').value);
+            var anksiyete4 = parseInt(document.querySelector('input[name="anksiyete4"]:checked').value);
+
+            // Soru 5-6 (Duygusal Zeka)
+            var duygusalZeka5 = parseInt(document.querySelector('input[name="duygusalZeka5"]:checked').value);
+            var duygusalZeka6 = parseInt(document.querySelector('input[name="duygusalZeka6"]:checked').value);
+
+            // Soru 7-8 (Stres)
+            var stres7 = parseInt(document.querySelector('input[name="stres7"]:checked').value);
+            var stres8 = parseInt(document.querySelector('input[name="stres8"]:checked').value);
+
+            // Soru 9-10 (Diğer Duygu Durumu Ölçekleri)
+            var digerSorular9 = parseInt(document.querySelector('input[name="digerSorular9"]:checked').value);
+            var digerSorular10 = parseInt(document.querySelector('input[name="digerSorular10"]:checked').value);
+
+            // Toplam puanı hesapla
+            toplamPuan = depresyon1 + depresyon2 + anksiyete3 + anksiyete4 + duygusalZeka5 + duygusalZeka6 + stres7 + stres8 + digerSorular9 + digerSorular10;
+
+            // Sonucu hesapla
+            var sonuc = "";
+
+            if (toplamPuan <= 10) {
+                sonuc = "Duygu Durumunuz Çok İyi";
+            } else if (toplamPuan <= 20) {
+                sonuc = "Duygu Durumunuz İyi";
+            } else if (toplamPuan <= 30) {
+                sonuc = "Duygu Durumunuz Orta";
+            } else if (toplamPuan <= 40) {
+                sonuc = "Duygu Durumunuz Kötü";
+            } else {
+                sonuc = "Duygu Durumunuz Çok Kötü";
+            }
+
+            document.getElementById("sonuc").innerHTML = "Sonuç: " + sonuc;
+        }
+    </script>
+</head>
+<body>
+    <div class="container">
+        <h1>Duygu Durumu Anketi</h1>
+        <form>
+            <p>Depresyon:</p>
+            <p>1. Son hafta içinde kendinizi ne sıklıkla üzgün veya hüzünlü hissettiniz?</p>
+            <input type="radio" name="depresyon1" value="0"> Hiçbir zaman 
+            <input type="radio" name="depresyon1" value="1"> Nadiren 
+            <input type="radio" name="depresyon1" value="2"> Arada bir 
+            <input type="radio" name="depresyon1" value="3"> Sıkça 
+            <input type="radio" name="depresyon1" value="4"> Her zaman 
+
+            <p>2. Son hafta içinde kendinizi ne sıklıkla enerjisiz hissettiniz?</p>
+            <input type="radio" name="depresyon2" value="0"> Hiçbir zaman 
+            <input type="radio" name="depresyon2" value="1"> Nadiren 
+            <input type="radio" name="depresyon2" value="2"> Arada bir 
+            <input type="radio" name="depresyon2" value="3"> Sıkça 
+            <input type="radio" name="depresyon2" value="4"> Her zaman 
+
+            <p>Anksiyete:</p>
+            <p>3. Son hafta içinde sinirli hissetme sıklığınız nedir?</p>
+            <input type="radio" name="anksiyete3" value="0"> Hiçbir zaman 
+            <input type="radio" name="anksiyete3" value="1"> Nadiren 
+            <input type="radio" name="anksiyete3" value="2"> Arada bir 
+            <input type="radio" name="anksiyete3" value="3"> Sıkça 
+            <input type="radio" name="anksiyete3" value="4"> Her zaman 
+
+            <p>4. Son iki hafta içinde, kaygı veya endişe nedeniyle zorluk yaşadınız mı?</p>
+            <input type="radio" name="anksiyete4" value="0"> Hiçbir zaman 
+            <input type="radio" name="anksiyete4" value="1"> Nadiren 
+            <input type="radio" name="anksiyete4" value="2"> Arada bir 
+            <input type="radio" name="anksiyete4" value="3"> Sıkça 
+            <input type="radio" name="anksiyete4" value="4"> Her zaman 
+
+            <p>Duygusal Zeka:</p>
+            <p>5. Duygusal tepkileri anlama sıklığınız nedir?</p>
+            <input type="radio" name="duygusalZeka5" value="1"> Hiçbir zaman 
+            <input type="radio" name="duygusalZeka5" value="2"> Nadiren 
+            <input type="radio" name="duygusalZeka5" value="3"> Arada bir 
+            <input type="radio" name="duygusalZeka5" value="4"> Sıkça 
+            <input type="radio" name="duygusalZeka5" value="5"> Her zaman 
+
+            <p>6. Kendi duygusal tepkilerinizi kontrol etme sıklığınız nedir?</p>
+            <input type="radio" name="duygusalZeka6" value="1"> Hiçbir zaman 
+            <input type="radio" name="duygusalZeka6" value="2"> Nadiren 
+            <input type="radio" name="duygusalZeka6" value="3"> Arada bir 
+            <input type="radio" name="duygusalZeka6" value="4"> Sıkça 
+            <input type="radio" name="duygusalZeka6" value="5"> Her zaman 
+
+            <p>Stres:</p>
+            <p>7. Son ay içinde, stres nedeniyle mide rahatsızlığı yaşadınız mı?</p>
+            <input type="radio" name="stres7" value="0"> Hiçbir zaman 
+            <input type="radio" name="stres7" value="1"> Nadiren 
+            <input type="radio" name="stres7" value="2"> Arada bir 
+            <input type="radio" name="stres7" value="3"> Sıkça 
+            <input type="radio" name="stres7" value="4"> Her zaman 
+
+            <p>8. Son hafta içinde, stres nedeniyle uyku düzeninizde değişiklikler yaşadınız mı?</p>
+            <input type="radio" name="stres8" value="0"> Hiçbir zaman 
+            <input type="radio" name="stres8" value="1"> Nadiren 
+            <input type="radio" name="stres8" value="2"> Arada bir 
+            <input type="radio" name="stres8" value="3"> Sıkça 
+            <input type="radio" name="stres8" value="4"> Her zaman 
+
+            <p>Diğer Duygu Durumu Ölçekleri:</p>
+            <p>9. Son iki hafta içinde, gelecekle ilgili endişeler sizi ne sıklıkla meşgul etti?</p>
+            <input type="radio" name="digerSorular9" value="0"> Hiçbir zaman 
+            <input type="radio" name="digerSorular9" value="1"> Nadiren 
+            <input type="radio" name="digerSorular9" value="2"> Arada bir 
+            <input type="radio" name="digerSorular9" value="3"> Sıkça 
+            <input type="radio" name="digerSorular9" value="4"> Her zaman 
+
+            <p>10. Son 24 saat içinde, mutlu hissetme sıklığınız nedir?</p>
+            <input type="radio" name="digerSorular10" value="1"> Hiçbir zaman 
+            <input type="radio" name="digerSorular10" value="2"> Nadiren 
+            <input type="radio" name="digerSorular10" value="3"> Arada bir 
+            <input type="radio" name="digerSorular10" value="4"> Sıkça 
+            <input type="radio" name="digerSorular10" value="5"> Her zaman 
+
+            <br>
+            <input type="button" value="Hesapla" onclick="hesaplaDuyguDurumu()">
+        </form>
+
+        <div id="sonuc"></div>
+    </div>
+</body>
+</html>
